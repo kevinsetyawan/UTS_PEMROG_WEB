@@ -21,7 +21,7 @@ exports.tampilsemuaberdasarkanid = function(req,res){
 };
 
 //menampilkan semua data tabel montir berdasarkan id
-exports.tampilsemuaberdasarkanid = function(req,res){
+exports.tampilmontirberdasarkanid = function(req,res){
     let id = req.params.id;
     connection.query('SELECT * FROM t_montir WHERE id_montir = ?', [id],
     function(error, rows, fields){
