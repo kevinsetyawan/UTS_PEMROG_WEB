@@ -1,0 +1,25 @@
+{
+  "name": "uts_pemrog_web",
+  "version": "1.0.0",
+  "description": "uts pemrog web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinsetyawan/UTS_PEMROG_WEB.git"
+  },
+  "keywords": [
+    "uts",
+    "pemrog",
+    "web",
+    "nodejs"
+  ],
+  "author": "kevin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinsetyawan/UTS_PEMROG_WEB/issues"
+  },
+  "homepage": "https://github.com/kevinsetyawan/UTS_PEMROG_WEB#readme"
+}
