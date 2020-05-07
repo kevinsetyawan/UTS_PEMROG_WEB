@@ -14,4 +14,8 @@ module.exports = function (app) {
 
     app.route('/tampilmontir')
         .get(jsonku.tampilsemuamontir);
+
+    app.route('/tampilservice')
+        .get(jsonku.tampilservice);
+
 } 
