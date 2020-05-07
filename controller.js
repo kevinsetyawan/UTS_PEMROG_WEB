@@ -113,3 +113,23 @@ exports.tambahsparepart = function (req, res) {
             }
         });
 };
+
+//menambahkan data User
+exports.tambahuser = function (req, res) {
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var role = req.body.role;
+    var tanggal_daftar = new Date();
+    
+
+    connection.query('INSERT INTO t_user (username, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?)',
+        [username, email, password, role, tanggal_daftar], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Menambahkan Data", res)
+            }
+        });
+};
