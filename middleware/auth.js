@@ -18,7 +18,7 @@ exports.registrasi = function(req,res){
     }
 
     var query = "SELECT email FROM ?? WHERE ??=?";
-    var table = ["t_user","email", post.email];
+    var table = ["user","email", post.email];
 
     query = mysql.format(query,table);
 
@@ -29,7 +29,7 @@ exports.registrasi = function(req,res){
         }else {
             if(rows.length == 0){
                 var query = "INSERT INTO ?? SET ?";
-                var table = ["t_user"];
+                var table = ["user"];
                 query = mysql.format(query,table);
                 connection.query(query, post, function(error, rows){
                     if(error){
@@ -55,7 +55,7 @@ exports.login = function(req,res){
     }
 
     var query = "SELECT * FROM ?? WHERE ??=? AND ??=?";
-    var table = ["t_user", "password", md5(post.password), "email", post.email];
+    var table = ["user", "password", md5(post.password), "email", post.email];
 
     query = mysql.format(query,table);
     connection.query(query, function(error, rows){
