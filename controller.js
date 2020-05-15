@@ -123,7 +123,7 @@ exports.tambahuser = function (req, res) {
     var tanggal_daftar = new Date();
     
 
-    connection.query('INSERT INTO t_user (username, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?)',
+    connection.query('INSERT INTO user (username, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?)',
         [username, email, password, role, tanggal_daftar], 
         function (error, rows, fields) {
             if (error) {
@@ -136,13 +136,13 @@ exports.tambahuser = function (req, res) {
 
 //menambahkan data level
 exports.tambahlevel = function (req, res) {
+    var id_level = req.body.id_level;
     var nama_level = req.body.nama_level;
-    var role = req.body.role;
     
     
 
-    connection.query('INSERT INTO level (nama_level, role) VALUES(?,?)',
-        [nama_level, role], 
+    connection.query('INSERT INTO t_level (id_level, nama_level) VALUES(?,?)',
+        [id_level, nama_level], 
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
