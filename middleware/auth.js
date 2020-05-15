@@ -55,7 +55,7 @@ exports.login = function (req, res) {
     }
 
     var query = "SELECT * FROM ?? WHERE ??=? AND ??=?";
-    var table = ["t_user", "password", md5(post.password), "email", post.email];
+    var table = ["user", "password", md5(post.password), "email", post.email];
 
     query = mysql.format(query, table);
     connection.query(query, function (error, rows) {
@@ -75,7 +75,7 @@ exports.login = function (req, res) {
                 }
 
                 var query = "INSERT INTO ?? SET ?";
-                var table = ["access_token"];
+                var table = ["akses_token"];
 
                 query = mysql.format(query, table);
                 connection.query(query, data, function (error, rows) {
