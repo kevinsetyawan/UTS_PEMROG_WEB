@@ -212,7 +212,7 @@ exports.ubahsparepart = function (req, res) {
 
 //Mengubah Data User
 exports.ubahuser = function (req, res) {
-    var id_user = req.body.id_user;
+    var id = req.body.id;
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -220,8 +220,8 @@ exports.ubahuser = function (req, res) {
     var tanggal_daftar = new Date();
     
 
-    connection.query('UPDATE t_user SET username=?, email=?, password=?, role=?, tanggal_daftar=? WHERE id_user=?',
-        [username, email, password, role, tanggal_daftar, id_user], 
+    connection.query('UPDATE user SET username=?, email=?, password=?, role=?, tanggal_daftar=? WHERE id=?',
+        [username, email, password, role, tanggal_daftar, id], 
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
