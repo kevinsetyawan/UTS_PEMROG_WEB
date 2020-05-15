@@ -235,12 +235,10 @@ exports.ubahuser = function (req, res) {
 exports.ubahlevel = function (req, res) {
     var id_level = req.body.id_level;
     var nama_level = req.body.nama_level;
-    var role = req.body.role;
     
     
-
-    connection.query('UPDATE level SET nama_level=?, role=? WHERE id_level=?',
-        [nama_level, role, id_level], 
+    connection.query('UPDATE t_level SET nama_level=? WHERE id_level=?',
+        [nama_level, id_level], 
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
@@ -259,10 +257,11 @@ exports.ubahservice = function (req, res) {
     var jumlah_sparepart = req.body.jumlah_sparepart;
     var id_sparepart = req.body.id_sparepart;
     var jam_service = req.body.jam_service;
+    var total_service = req.body.total_service
     
 
-    connection.query('UPDATE t_service SET tgl_service=?, id_user=?, id_montir=?, jumlah_sparepart=?, id_sparepart=?, jam_service=? WHERE id_service=?',
-        [tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, id_service], 
+    connection.query('UPDATE t_service SET tgl_service=?, id_user=?, id_montir=?, jumlah_sparepart=?, id_sparepart=?, jam_service=?, total_service=? WHERE id_service=?',
+        [tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, total_service, id_service], 
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
@@ -314,7 +313,7 @@ exports.hapusUSer = function(req, res){
 //Menghapus Data Level
 exports.hapusLevel = function(req, res){
     var id = req.body.id_level;
-    connection.query('DELETE FROM level WHERE id_level=?', [id],
+    connection.query('DELETE FROM t_level WHERE id_level=?', [id],
     function (error, rows, fields) {
         if (error) {
             console.log(error);
