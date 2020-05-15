@@ -66,10 +66,10 @@ exports.login = function(req,res){
                 var token = jwt.sign({rows}, config.secret, {
                     expiresIn: 1440
                 });
-                id_user = rows[0].id_user;
+                id = rows[0].id;
 
                 var data = {
-                    id_user: id_user,
+                    id: id,
                     access_token: token,
                     ip_address: ip.address()
                 }
@@ -86,7 +86,7 @@ exports.login = function(req,res){
                             success: true,
                             message: "Token JWT Tergenerate!",
                             token:token,
-                            currUser: data.id_user
+                            currUser: data.id
                         });
                     }
                 });
@@ -101,7 +101,7 @@ exports.login = function(req,res){
 exports.tambahdataservice = function (req, res) {
     var post = {
      tgl_service: new Date(),
-     id_user: req.body.id_user,
+     id: req.body.id,
      id_montir: req.body.id_montir,
      jumlah_sparepart: req.body.jumlah_sparepart,	
      id_sparepart: req.body.id_sparepart,
