@@ -101,12 +101,12 @@ exports.login = function (req, res) {
 exports.tambahdataservice = function (req, res) {
     var post = {
      tgl_service: new Date(),
-     id: req.body.id,
+     id_user: req.body.id,
      id_montir: req.body.id_montir,
      jumlah_sparepart: req.body.jumlah_sparepart,	
      id_sparepart: req.body.id_sparepart,
      jam_service: req.body.jam_service
-     
+      
     }
     var query = "INSERT INTO ?? SET ?";
     var table = ["t_service"];
